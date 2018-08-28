@@ -3,7 +3,8 @@
  */
 const express = require('express');
 const bodyParser = require('body-parser');
-const template = require('art-template');
+// const template = require('art-template');
+const template = require('express-art-template');
 const router = require('./router.js');
 const app = express();
 
@@ -13,7 +14,8 @@ app.use('/www',express.static('www'));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 // 设置模板引擎
-app.engine('.html',template.__express);
+// app.engine('.html',template.__express);
+app.engine('.html',template);
 app.set('views','./view');
 app.set('view engine','html');
 // 处理动态路由
